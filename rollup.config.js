@@ -8,6 +8,7 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
+import postcss from 'rollup-plugin-postcss'
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 
@@ -45,6 +46,18 @@ export default {
 				dedupe: ['svelte']
 			}),
 			commonjs(),
+			postcss({
+				extract: true,
+				minimize: true,
+				use: [
+					['sass', {
+					includePaths: [
+						'./src/theme',
+						'./node_modules'
+					]
+					}]
+				]
+			}),
 			typescript({ sourceMap: dev }),
 
 			legacy && babel({
@@ -72,7 +85,6 @@ export default {
 		preserveEntrySignatures: false,
 		onwarn,
 	},
-
 	server: {
 		input: { server: config.server.input().server.replace(/\.js$/, ".ts") },
 		output: config.server.output(),
@@ -103,7 +115,6 @@ export default {
 		preserveEntrySignatures: 'strict',
 		onwarn,
 	},
-
 	serviceworker: {
 		input: config.serviceworker.input().replace(/\.js$/, '.ts'),
 		output: config.serviceworker.output(),
