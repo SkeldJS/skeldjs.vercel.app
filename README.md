@@ -44,3 +44,5 @@ Exported files will be available at `__sapper__/export`
 
 # Notes
 > The most comprehensive set of SkeldJS plugin documentation and JavaScript protocol utilities for Among Us.
+
+This repository is held under the GPL-V3 license, meaning I am not responsible for any consequences that may come from using the SkeldJS website.
