@@ -15,8 +15,7 @@
     "compression": "^1.7.1",
     "polka": "next",
     "rollup": "^2.34.2",
-    "sirv": "^1.0.0",
-    "webpack-modules": "file:..\\..\\..\\..\\..\\AppData\\Roaming\\nvm\\v15.3.0\\node_modules\\webpack-modules"
+    "sirv": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
